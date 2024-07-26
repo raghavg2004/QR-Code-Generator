@@ -1,0 +1,50 @@
+Metadata-Version: 1.0
+Name: QR Code Generator_1_0_0_0
+Version: 1.0.0.0
+Summary: Projectonnet
+Author: Raghav Gupta
+Author-email: projectonnet11@gmail.com
+License: Apache 2.0
+Description: Project on Net
+        =================
+        
+         `Project on Net`_ is an Apache2 licensed collection of Project on Net 
+        intended for education and fun. The Software are written in simple 
+	Python, C, & .dll code and
+        designed for experimentation and changes. Simplified versions of several
+        classic are included.
+        
+        Python is one of the top-five most popular programming languages in the         world
+        and available for free from `Python.org <https://www.python.org/>`_. Python
+        includes an extensive Standard Library distributed with your installation. 
+       
+        The Software can run anywhere.
+        running Windows, Mac OS, or Linux and older or low-power hardware such as           the Raspberry Pi. 
+  
+        Features
+        --------
+
+        - Simple code
+        - Easy to install
+        - Designed for education
+        - 100% Test Coverage
+        - Tested on CPython 2.7, 3.4, 3.5, and 3.6
+        - Tested on Windows, Mac OS X, Raspbian (Raspberry Pi), and Linux
+        - Tested using Travis CI and AppVeyor CI
+
+        Project on Net License
+        ----------------------
+        
+        Copyright 2020 RAGHAV GUPTA
+        
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        
+            http://www.apache.org/licenses/LICENSE-2.0
+        
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.

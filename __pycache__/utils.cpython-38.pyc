@@ -1,0 +1,298 @@
+U
+    BYY¾'  ã                   @   sT   d Z ddlZddlZddlZddd„Zdd„ Zdd	„ Zd
+d„ ZG dd„ dejƒZ	dS )zUtilities
+
+é    NéÈ   c                 C   s   t | | | | | ƒS )aË  Floor of `value` given `size` and `offset`.
+
+    The floor function is best understood with a diagram of the number line::
+
+         -200  -100    0    100   200
+        <--|--x--|-----|--y--|--z--|-->
+
+    The number line shown has offset 200 denoted by the left-hand tick mark at
+    -200 and size 100 denoted by the tick marks at -100, 0, 100, and 200. The
+    floor of a value is the left-hand tick mark of the range where it lies. So
+    for the points show above: ``floor(x)`` is -200, ``floor(y)`` is 0, and
+    ``floor(z)`` is 100.
+
+    >>> floor(10, 100)
+    0.0
+    >>> floor(120, 100)
+    100.0
+    >>> floor(-10, 100)
+    -100.0
+    >>> floor(-150, 100)
+    -200.0
+    >>> floor(50, 167)
+    -33.0
+
+    )Úfloat)ÚvalueÚsizeÚoffset© r   úZC:\Users\Raghav Gupta\utils.pyÚfloor   s    r	   c                 C   s*   t j t¡}t j |¡}t j || ¡}|S )z3Return full path to `filename` in QRmodule.)ÚosÚpathÚrealpathÚ__file__ÚdirnameÚjoin)ÚfilenameÚfilepathÚdirpathÚfullpathr   r   r   r   (   s    r   c                 C   s4   ddl }| ¡  | | |¡ | ¡  | ||¡ dS )z$Draw line from `(a, b)` to `(x, y)`.r   N)ÚturtleÚupÚgotoÚdown)ÚaÚbÚxÚyr   r   r   r   Úline0   s
+    r   c                 C   sd   ddl }| ¡  | | |¡ | ¡  | |¡ | ¡  tdƒD ]}| |¡ | d¡ q>| 	¡  dS )zDraw square at `(x, y)` with side length `size` and fill color `name`.
+
+    The square is oriented so the bottom left corner is at (x, y).
+
+    r   Né   éZ   )
+r   r   r   r   ZcolorZ
+begin_fillÚrangeZforwardÚleftZend_fill)r   r   r   Únamer   Úcountr   r   r   Úsquare9   s    
+
+r#   c                   @   sü   e Zd ZdZdZdZdd„ Zedd„ ƒZej	dd„ ƒZed	d
+„ ƒZ
+e
+j	dd
+„ ƒZ
+dd„ Zdd„ Zdd„ Zdd„ Zdd„ Zdd„ Zdd„ Zdd„ ZeZdd„ Zdd„ Zd d!„ Zd"d#„ Zd$d%„ ZeZd&d'„ Zd(d)„ Zd*d+„ Zd,d-„ Zd.d/„ Zd0d1„ Zd2d3„ Z d4S )5ÚvectorzÀTwo-dimensional vector.
+
+    Vectors can be modified in-place.
+
+    >>> v = vector(0, 1)
+    >>> v.move(1)
+    >>> v
+    vector(1, 2)
+    >>> v.rotate(90)
+    >>> v
+    vector(-2.0, 1.0)
+
+    é   )Ú_xÚ_yÚ_hashc                 C   s&   d| _ t|| jƒ| _t|| jƒ| _dS )z…Initialize vector with coordinates: x, y.
+
+        >>> v = vector(1, 2)
+        >>> v.x
+        1
+        >>> v.y
+        2
+
+        N)r(   ÚroundÚ	PRECISIONr&   r'   )Úselfr   r   r   r   r   Ú__init__`   s    
+zvector.__init__c                 C   s   | j S )z‹X-axis component of vector.
+
+        >>> v = vector(1, 2)
+        >>> v.x
+        1
+        >>> v.x = 3
+        >>> v.x
+        3
+
+        )r&   ©r+   r   r   r   r   n   s    zvector.xc                 C   s$   | j d k	rtdƒ‚t|| jƒ| _d S )Nzcannot set x after hashing)r(   Ú
+ValueErrorr)   r*   r&   ©r+   r   r   r   r   r   |   s    
+c                 C   s   | j S )z‹Y-axis component of vector.
+
+        >>> v = vector(1, 2)
+        >>> v.y
+        2
+        >>> v.y = 5
+        >>> v.y
+        5
+
+        )r'   r-   r   r   r   r   ‚   s    zvector.yc                 C   s$   | j d k	rtdƒ‚t|| jƒ| _d S )Nzcannot set y after hashing)r(   r.   r)   r*   r'   r/   r   r   r   r      s    
+c                 C   s&   | j dkr | j| jf}t|ƒ| _ | j S )zÕv.__hash__() -> hash(v)
+
+        >>> v = vector(1, 2)
+        >>> h = hash(v)
+        >>> v.x = 2
+        Traceback (most recent call last):
+            ...
+        ValueError: cannot set x after hashing
+
+        N)r(   r   r   Úhash)r+   Úpairr   r   r   Ú__hash__–   s    
+
+zvector.__hash__c                 C   s   dS )zZv.__len__() -> len(v)
+
+        >>> v = vector(1, 2)
+        >>> len(v)
+        2
+
+        é   r   r-   r   r   r   Ú__len__¦   s    zvector.__len__c                 C   s$   |dkr| j S |dkr| jS t‚dS )zØv.__getitem__(v, i) -> v[i]
+
+        >>> v = vector(3, 4)
+        >>> v[0]
+        3
+        >>> v[1]
+        4
+        >>> v[2]
+        Traceback (most recent call last):
+            ...
+        IndexError gg
+
+        r   é   N)r   r   Ú
+IndexError)r+   Úindexr   r   r   Ú__getitem__°   s
+    zvector.__getitem__c                 C   s   t | ƒ}|| j| jƒS )zxReturn copy of vector.
+
+        >>> v = vector(1, 2)
+        >>> w = v.copy()
+        >>> v is w
+        False
+
+        )Útyper   r   )r+   Ú	type_selfr   r   r   ÚcopyÅ   s    	zvector.copyc                 C   s&   t |tƒr"| j|jko | j|jkS tS )zzv.__eq__(w) -> v == w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(1, 2)
+        >>> v == w
+        True
+
+        ©Ú
+isinstancer$   r   r   ÚNotImplemented©r+   Úotherr   r   r   Ú__eq__Ñ   s    	
+zvector.__eq__c                 C   s&   t |tƒr"| j|jkp | j|jkS tS )zzv.__ne__(w) -> v != w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v != w
+        True
+
+        r<   r?   r   r   r   Ú__ne__Þ   s    	
+zvector.__ne__c                 C   s`   | j dk	rtdƒ‚nHt|tƒr@|  j|j7  _|  j|j7  _n|  j|7  _|  j|7  _| S )zÈv.__iadd__(w) -> v += w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v += w
+        >>> v
+        vector(4, 6)
+        >>> v += 1
+        >>> v
+        vector(5, 7)
+
+        Nzcannot add vector after hashing©r(   r.   r=   r$   r   r   r?   r   r   r   Ú__iadd__ë   s    
+
+
+zvector.__iadd__c                 C   s   |   ¡ }| |¡S )zÕv.__add__(w) -> v + w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v + w
+        vector(4, 6)
+        >>> v + 1
+        vector(2, 3)
+        >>> 2.0 + v
+        vector(3.0, 4.0)
+
+        )r;   rD   ©r+   r@   r;   r   r   r   Ú__add__  s    zvector.__add__c                 C   s   |   |¡ dS )z×Move vector by other (in-place).
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v.move(w)
+        >>> v
+        vector(4, 6)
+        >>> v.move(3)
+        >>> v
+        vector(7, 9)
+
+        N)rD   r?   r   r   r   Úmove  s    zvector.movec                 C   s`   | j dk	rtdƒ‚nHt|tƒr@|  j|j8  _|  j|j8  _n|  j|8  _|  j|8  _| S )zÌv.__isub__(w) -> v -= w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v -= w
+        >>> v
+        vector(-2, -2)
+        >>> v -= 1
+        >>> v
+        vector(-3, -3)
+
+        Nz$cannot subtract vector after hashingrC   r?   r   r   r   Ú__isub__#  s    
+
+
+zvector.__isub__c                 C   s   |   ¡ }| |¡S )zªv.__sub__(w) -> v - w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v - w
+        vector(-2, -2)
+        >>> v - 1
+        vector(0, 1)
+
+        )r;   rH   rE   r   r   r   Ú__sub__:  s    zvector.__sub__c                 C   s`   | j dk	rtdƒ‚nHt|tƒr@|  j|j9  _|  j|j9  _n|  j|9  _|  j|9  _| S )zÉv.__imul__(w) -> v *= w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v *= w
+        >>> v
+        vector(3, 8)
+        >>> v *= 2
+        >>> v
+        vector(6, 16)
+
+        Nz$cannot multiply vector after hashingrC   r?   r   r   r   Ú__imul__H  s    
+
+
+zvector.__imul__c                 C   s   |   ¡ }| |¡S )zÕv.__mul__(w) -> v * w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v * w
+        vector(3, 8)
+        >>> v * 2
+        vector(2, 4)
+        >>> 3.0 * v
+        vector(3.0, 6.0)
+
+        )r;   rJ   rE   r   r   r   Ú__mul___  s    zvector.__mul__c                 C   s   |   |¡ dS )zàScale vector by other (in-place).
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> v.scale(w)
+        >>> v
+        vector(3, 8)
+        >>> v.scale(0.5)
+        >>> v
+        vector(1.5, 4.0)
+
+        N)rJ   r?   r   r   r   Úscaleq  s    zvector.scalec                 C   s`   | j dk	rtdƒ‚nHt|tƒr@|  j|j  _|  j|j  _n|  j|  _|  j|  _| S )zÖv.__itruediv__(w) -> v /= w
+
+        >>> v = vector(2, 4)
+        >>> w = vector(4, 8)
+        >>> v /= w
+        >>> v
+        vector(0.5, 0.5)
+        >>> v /= 2
+        >>> v
+        vector(0.25, 0.25)
+
+        Nz"cannot divide vector after hashingrC   r?   r   r   r   Ú__itruediv__€  s    
+
+
+zvector.__itruediv__c                 C   s   |   ¡ }| |¡S )z´v.__truediv__(w) -> v / w
+
+        >>> v = vector(1, 2)
+        >>> w = vector(3, 4)
+        >>> w / v
+        vector(3.0, 2.0)
+        >>> v / 2
+        vector(0.5, 1.0)
+
+        )r;   rM   rE   r   r   r   Ú__truediv__—  s    zvector.__truediv__c                 C   s    |   ¡ }|j |_|j |_|S )z_v.__neg__() -> -v
+
+        >>> v = vector(1, 2)
+        >>> -v
+        vector(-1, -2)
+
+        )r;   r   r   )r+   r;   r   r   r   Ú__neg__¥  s    	
+
+zvector.__neg__c                 C   s   | j d | jd  d S )z\v.__abs__() -> abs(v)
+
+        >>> v = vector(3, 4)
+        >>> abs(v)
+        5.0
+
+        r3   g      à?)r   r   r-   r   r   r   Ú__abs__³  s    zvector.__abs__c                 C   sh   | j dk	rtdƒ‚|tj d }t |¡}t |¡}| j}| j}|| ||  | _|| ||  | _dS )z¡Rotate vector counter-clockwise by angle (in-place).
+
+        >>> v = vector(1, 2)
+        >>> v.rotate(90)
+        >>> v == vector(-2, 1)
+        True
+
+        Nz"cannot rotate vector after hashingg     €f@)r(   r.   ÚmathÚpiÚcosÚsinr   r   )r+   ZangleÚradiansZcosineZsiner   r   r   r   r   Úrotate½  s    	
+
+
+zvector.rotatec                 C   s    t | ƒ}|j}d || j| j¡S )zjv.__repr__() -> repr(v)
+
+        >>> v = vector(1, 2)
+        >>> repr(v)
+        'vector(1, 2)'
+
+        z{}({!r}, {!r}))r9   Ú__name__Úformatr   r   )r+   r:   r!   r   r   r   Ú__repr__Ð  s    zvector.__repr__N)!rW   Ú
+__module__Ú__qualname__Ú__doc__r*   Ú	__slots__r,   Úpropertyr   Úsetterr   r2   r4   r8   r;   rA   rB   rD   rF   Ú__radd__rG   rH   rI   rJ   rK   Ú__rmul__rL   rM   rN   rO   rP   rV   rY   r   r   r   r   r$   M   sD   
+
+
+
+
+
+r$   )r   )
+r\   ÚcollectionsrQ   r
+   r	   r   r   r#   ÚSequencer$   r   r   r   r   Ú<module>   s   
+	

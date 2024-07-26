@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="QR Code Generator.exe" version="1.0.0.0" publicKeyToken="5adfc7b99f172ada" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="QR Code Generator" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="QR Code Generator.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel node will disable file and registry virtualization.
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MessagingToolkit.QRCode.dll" size="6193152">
+      <assemblyIdentity name="MessagingToolkit.QRCode" version="1.0.3541.23206" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>xMg4gZkN1VGy2SLD636Zi0XZA8c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QR Code Generator.exe" size="23552">
+      <assemblyIdentity name="QR Code Generator" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>xcDoKaKJeIT2Xo4I7U2tY+jYeRI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of all Windows versions that this application is designed to work with. Windows will automatically select the most compatible environment.-->
+      <!-- If your application is designed to work with Windows 7, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=DESKTOP-2BJE5SB\Raghav" issuerKeyHash="ca6fccf72437eeaa431c898c56d88ab7a3f6d859" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>neLsrZvZvwu78hLKeBIIuDbb1Ig=</DigestValue></Reference></SignedInfo><SignatureValue>w7/bVA2NV4hr68PEK2nfdZivLIWI94ExBV7nLJgqN1Grar3hHCd1Kh7o9W+BkEEU7XIgS9TMN40LWtTNGA2EkYx3u7G5Km7utbZLTV71/pijKD+/j2/zrPcKU9nxlGeR9u8WQCyN/CgfwXB5JbBH+o3St0WQH6EhvKYj1WeCb4U=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>7DjqX2Hwe3SsLqhDBtXeE13c7BmtMbj6yGfA1XDqewkGHewQ/vyE+a3S8ZH2het6U4FJ2VU4pACuvCcKeyynvbhIFHsN5p7Lj/LrOxKEE4rCHo/D3Ch6qpO380CMj6cTnIeUeGYx9PhWHWR+3I9DHGOIgVMyA0MELuwzifuED3U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="88d4db36b8081278ca12f2bb0bbfd99badece29d" Description="" Url=""><as:assemblyIdentity name="QR Code Generator.exe" version="1.0.0.0" publicKeyToken="5adfc7b99f172ada" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-2BJE5SB\Raghav</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>G2qPzeJV8tga28jgOpQoUxHcLhM=</DigestValue></Reference></SignedInfo><SignatureValue>GjIx7bW2CeUhNWHENstmU5wIxT9FZJoFwQb0KWZ1HVDpDKqbupegPPl91s0vLL6ViUw9x+vBNRvTO7F81Ua1tLuCzROcAgOR44gZUpZMopUiQUqhhHWMJBFz2nQl1OEJlDjHfU/GDcyBKH4EYVsIa2UOmyq10w5es/Vgz8YN9+0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>7DjqX2Hwe3SsLqhDBtXeE13c7BmtMbj6yGfA1XDqewkGHewQ/vyE+a3S8ZH2het6U4FJ2VU4pACuvCcKeyynvbhIFHsN5p7Lj/LrOxKEE4rCHo/D3Ch6qpO380CMj6cTnIeUeGYx9PhWHWR+3I9DHGOIgVMyA0MELuwzifuED3U=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQGicu5VRheq9Mhql64cIyljANBgkqhkiG9w0BAQUFADA3MTUwMwYDVQQDHiwARABFAFMASwBUAE8AUAAtADIAQgBKAEUANQBTAEIAXABSAGEAZwBoAGEAdjAeFw0yMDEyMjMwNTI3NTlaFw0yMTEyMjMxMTI3NTlaMDcxNTAzBgNVBAMeLABEAEUAUwBLAFQATwBQAC0AMgBCAEoARQA1AFMAQgBcAFIAYQBnAGgAYQB2MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDsOOpfYfB7dKwuqEMG1d4TXdzsGa0xuPrIZ8DVcOp7CQYd7BD+/IT5rdLxkfaF63pTgUnZVTikAK68Jwp7LKe9uEgUew3mnsuP8us7EoQTisIej8PcKHqqk7fzQIyPpxOch5R4ZjH0+FYdZH7cj0McY4iBUzIDQwQu7DOJ+4QPdQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAFzaZ+20cEk1PUODLQGE5kPXfRKi23YOqe589nzTTkTMSeydOeePj8QlcoayKPUEPRCBVj6dOKzeHgDQySkpA434t0/2AJ2Z6OqLnfIx/C9HFbDdc6C0piDy+hn5LD5ts7JOsIDIQXFH21WwW2fJfYG7n+Yeen2rQ/uO9SgfDbun</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
